@@ -17,9 +17,13 @@ const body = document.querySelector("body");
 const header = document.querySelector("header");
 const homeContainer = document.querySelector(".home h2");
 
+
+
 body.addEventListener("keydown", event => {
     body.style.backgroundColor = "lightblue";
+    stopPropgation();
     header.style.backgroundColor = "purple";
+    
 })
 
 body.addEventListener("keyup", event => {
@@ -36,6 +40,14 @@ homeContainer.addEventListener("dblclick", event => {
 const navBar = document.querySelector(".nav");
 const navItems = document.querySelectorAll(".nav-link");
 
+for (let i=0; i<navItems.length; i++) {
+    navItems[i].addEventListener("click", event => {
+    event.preventDefault();
+})
+}
+
+
+
 navItems[0].addEventListener("mouseenter", event => {
     navItems[0].style.color = "blue";
     navItems[0].style.fontWeight = "bold";
@@ -46,12 +58,16 @@ navItems[0].addEventListener("mouseleave", event => {
     navItems[0].style.fontWeight = "normal";
 })
 
+
+
 // Buttons
 
 const signButtons = document.querySelectorAll(".btn");
 
 signButtons[0].addEventListener("mouseover", event => {
     title.innerHTML = "Where are you going?";
+    event.stopPropgation();
+    title.innerHTML = "No, come back";
 })
 
 signButtons[0].addEventListener("mouseleave", event => {
