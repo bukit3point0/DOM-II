@@ -6,9 +6,9 @@
 // 5. mouseover
 // 6. click
 // 7. dblclick
-// 8. 
-// 9. 
-// 10. 
+// 8. mousedown
+// 9. mouseup
+// 10. contextmenu
 
 // Your code goes here
 
@@ -58,6 +58,25 @@ signButtons[0].addEventListener("mouseleave", event => {
     title.innerHTML = "Fun Bus Travel Agency";
 })
 
+signButtons[1].addEventListener("mousedown", event => {
+    signButtons[1].style.color = "purple";
+    signButtons[1].style.backgroundColor = "white";
+})
+
+signButtons[1].addEventListener("mouseup", event => {
+    signButtons[1].style.color = "white";
+    signButtons[1].style.backgroundColor = "purple";
+})
+
 signButtons[2].addEventListener("click", event => {
     alert("Nobody in this room!");
+})
+
+// Pick Your Destination
+
+const destination = document.querySelector(".content-destination");
+const destinationImg = document.querySelector(".content-destination img");
+
+destination.addEventListener("contextmenu", event => {
+    destinationImg.setAttribute("src","https://i.ytimg.com/vi/RNoHcWE8tbQ/maxresdefault.jpg");
 })
